@@ -1,81 +1,35 @@
 # Metal Artifact Simulation and Reduction in CT
 
 ## Overview
-This project investigates **metal artifacts in computed tomography (CT)** and implements computational methods to **simulate** and **reduce** these artifacts. Metal implants (e.g., dental fillings, hip replacements) can create severe streaking and distortion in CT images due to physical effects such as **beam hardening** and **photon starvation**.
+This repository contains MATLAB implementations for **simulating metal artifacts in CT images** and applying **metal artifact reduction (MAR)** techniques. The project was completed as part of the **BENG 280A / ECE 207 Midterm Project** at **UC San Diego (Fall 2024)**.
 
-This work was completed as part of the **BENG 280A / ECE 207 Midterm Project**.
+Metal artifacts in CT arise mainly from:
+- **Beam hardening**
+- **Photon starvation**
 
----
-
-## What Causes Metal Artifacts?
-
-**Beam Hardening**
-- X-ray beams are polychromatic (multiple energies).
-- Dense metals absorb lower-energy photons more strongly, shifting the beam spectrum.
-- Results in dark streaks and bright edges in reconstructed images.
-
-**Photon Starvation**
-- Metals absorb or scatter most photons.
-- Insufficient photon counts at the detector create streaking and speckle noise.
+This repo explores both the simulation of these effects and simple computational approaches to reduce them.
 
 ---
 
-## Methods
+## Files in this Repo
 
-### 1) Simulation of Metal Artifacts
-
-**Photon Starvation Simulation**
-- Convert HU image to attenuation coefficients (μ).
-- Generate a sinogram using the Radon transform.
-- Add metal attenuation.
-- Reconstruct the image using inverse Radon transform.
-
-**Beam Hardening Simulation**
-- Model multiple energy levels instead of a single monochromatic beam.
-- Generate and combine multiple sinograms.
-- Reconstruct a polychromatic CT image showing beam hardening artifacts.
+- **`simulate_v2.m`** — Simulates metal artifacts in CT (photon starvation and beam hardening effects).
+- **`Sinogram Interpolation MAR.m`** — Implements sinogram-based metal artifact reduction via interpolation.
+- **`Simplified Iteration MAR.m`** — Implements a simplified iterative metal artifact reduction method.
+- **`BENG280A_ECE207 Midterm.pdf`** — Project report/slides with background, methods, and results.
 
 ---
 
-### 2) Metal Artifact Reduction (MAR)
+## Methods (High Level)
 
-**A. Sinogram Interpolation MAR**
-1. Segment metal regions via thresholding.
-2. Forward project to obtain metal-only sinogram.
-3. Interpolate corrupted regions in the original sinogram.
-4. Reconstruct the corrected image.
-
-**B. Simplified Iterative MAR**
-1. Segment metal regions.
-2. Simulate metal artifacts.
-3. Subtract simulated artifacts from the original image.
-4. Iterate for refinement.
+We implemented two MAR approaches:
+- **Sinogram Interpolation MAR**: Identifies metal regions in the sinogram and interpolates corrupted areas before reconstruction.
+- **Simplified Iterative MAR**: Simulates metal artifacts and subtracts them iteratively from the image.
 
 ---
 
-## Results
-Both methods reduced metal streak artifacts:
-- Sinogram interpolation is simpler but may blur details near metal.
-- Iterative MAR better preserves structure but requires tuning.
+## Team & Contact
 
----
-
-## Challenges
-- Generalizing to different CT datasets.
-- Choosing appropriate thresholds.
-- Selecting optimal iteration numbers.
-- Balancing artifact removal with anatomical fidelity.
-
----
-
-## Future Work
-- Quantitative evaluation using SD, CNR, and artifact noise metrics.
-- Explore deep learning–based inpainting or MAR methods.
-- Extend to 3D CT volumes.
-
----
-
-## Team
 - **Benjia Zhang**
-- **Juo-Hsuan Chang**
-- **Iris Zaretzki**
+- **Juo-Hsuan Chang** — juc077@ucsd.edu  
+- **Iris Zaretzki** 
