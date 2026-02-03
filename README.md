@@ -30,6 +30,6 @@ We implemented two MAR approaches:
 
 ## Team & Contact
 
-- **Benjia Zhang**
+- **Benjia Zhang** - b9zhang@stanford.edu
 - **Juo-Hsuan Chang** — juc077@ucsd.edu  
-- **Iris Zaretzki** 
+- **Iris Zaretzki** -  izaretzki@ucsd.edu
