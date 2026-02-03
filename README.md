@@ -33,3 +33,9 @@ We implemented two MAR approaches:
 - **Benjia Zhang** - b9zhang@stanford.edu
 - **Juo-Hsuan Chang** — juc077@ucsd.edu  
 - **Iris Zaretzki** -  izaretzki@ucsd.edu
+
+---
+
+## Reference
+
+See **`BENG280A_ECE207 Midterm.pdf`** for full background, theory, methods, and results.
