@@ -38,4 +38,5 @@ We implemented two MAR approaches:
 
 ## Reference
 
+Project presentation link: https://youtu.be/G3KNqzuBb-I?si=gU-YIIsGsbFLE29O&t=900
 See **`BENG280A_ECE207 Midterm.pdf`** for full background, theory, methods, and results.
